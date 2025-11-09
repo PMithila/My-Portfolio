@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, target-densityDpi=device-dpi, minimal-ui' />
+    <title>Mithila Packiyathasan</title>
+    <meta property="og:title" content="Mithila Packiyathasan"/>
+    <meta name="description" content="Mithila Packiyathasan 3D Portfolio"/>
+    <meta property="og:description" content="Mithila Packiyathasan 3D Portfolio"/>
+    <meta property="og:url" content="https://mdamiruddin-3dportfolio.vercel.app"/>
+    <meta property="og:image" content="https://raw.githubusercontent.com/MdAmiruddin/mdamiruddin-3dportfolio/main/public/social/screenshot.png"/>
+    <meta name="twitter:card" content="summary"/>
+  </head>
+  <body class="light-theme">
+    <div class="experience">
+      <canvas class="experience-canvas"></canvas>
+    </div>
+
+    <!-- Preloader -->
+    <div class="preloader">
+      <div class="preloader-wrapper">
+        <div class="loading">
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page" asscroll-container>
+
+      <div class="toggle-bar">
+        <div class="sun-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path fill="currentColor" d="M12 5Q11.575 5 11.288 4.712Q11 4.425 11 4V2Q11 1.575 11.288 1.287Q11.575 1 12 1Q12.425 1 12.713 1.287Q13 1.575 13 2V4Q13 4.425 12.713 4.712Q12.425 5 12 5ZM16.95 7.05Q16.675 6.775 16.675 6.362Q16.675 5.95 16.95 5.65L18.35 4.225Q18.65 3.925 19.062 3.925Q19.475 3.925 19.775 4.225Q20.05 4.5 20.05 4.925Q20.05 5.35 19.775 5.625L18.35 7.05Q18.075 7.325 17.65 7.325Q17.225 7.325 16.95 7.05ZM20 13Q19.575 13 19.288 12.712Q19 12.425 19 12Q19 11.575 19.288 11.287Q19.575 11 20 11H22Q22.425 11 22.712 11.287Q23 11.575 23 12Q23 12.425 22.712 12.712Q22.425 13 22 13ZM12 23Q11.575 23 11.288 22.712Q11 22.425 11 22V20Q11 19.575 11.288 19.288Q11.575 19 12 19Q12.425 19 12.713 19.288Q13 19.575 13 20V22Q13 22.425 12.713 22.712Q12.425 23 12 23ZM5.65 7.05 4.225 5.65Q3.925 5.35 3.925 4.925Q3.925 4.5 4.225 4.225Q4.5 3.95 4.925 3.95Q5.35 3.95 5.625 4.225L7.05 5.65Q7.325 5.925 7.325 6.35Q7.325 6.775 7.05 7.05Q6.75 7.325 6.35 7.325Q5.95 7.325 5.65 7.05ZM18.35 19.775 16.95 18.35Q16.675 18.05 16.675 17.638Q16.675 17.225 16.95 16.95Q17.225 16.675 17.638 16.675Q18.05 16.675 18.35 16.95L19.775 18.35Q20.075 18.625 20.062 19.05Q20.05 19.475 19.775 19.775Q19.475 20.075 19.05 20.075Q18.625 20.075 18.35 19.775ZM2 13Q1.575 13 1.288 12.712Q1 12.425 1 12Q1 11.575 1.288 11.287Q1.575 11 2 11H4Q4.425 11 4.713 11.287Q5 11.575 5 12Q5 12.425 4.713 12.712Q4.425 13 4 13ZM4.225 19.775Q3.95 19.5 3.95 19.075Q3.95 18.65 4.225 18.375L5.65 16.95Q5.925 16.675 6.338 16.675Q6.75 16.675 7.05 16.95Q7.35 17.25 7.35 17.663Q7.35 18.075 7.05 18.375L5.65 19.775Q5.35 20.075 4.925 20.075Q4.5 20.075 4.225 19.775ZM12 18Q9.5 18 7.75 16.25Q6 14.5 6 12Q6 9.5 7.75 7.75Q9.5 6 12 6Q14.5 6 16.25 7.75Q18 9.5 18 12Q18 14.5 16.25 16.25Q14.5 18 12 18ZM12 16Q13.65 16 14.825 14.825Q16 13.65 16 12Q16 10.35 14.825 9.175Q13.65 8 12 8Q10.35 8 9.175 9.175Q8 10.35 8 12Q8 13.65 9.175 14.825Q10.35 16 12 16Z"/></svg>
+        </div>
+        <button class="toggle-button">
+          <div class="toggle-circle"></div>
+        </button>
+        <div class="moon-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path fill="currentColor" d="M12 21Q8.25 21 5.625 18.375Q3 15.75 3 12Q3 8.25 5.625 5.625Q8.25 3 12 3Q12.35 3 12.688 3.025Q13.025 3.05 13.35 3.1Q12.325 3.825 11.713 4.987Q11.1 6.15 11.1 7.5Q11.1 9.75 12.675 11.325Q14.25 12.9 16.5 12.9Q17.875 12.9 19.025 12.287Q20.175 11.675 20.9 10.65Q20.95 10.975 20.975 11.312Q21 11.65 21 12Q21 15.75 18.375 18.375Q15.75 21 12 21ZM12 19Q14.2 19 15.95 17.788Q17.7 16.575 18.5 14.625Q18 14.75 17.5 14.825Q17 14.9 16.5 14.9Q13.425 14.9 11.262 12.738Q9.1 10.575 9.1 7.5Q9.1 7 9.175 6.5Q9.25 6 9.375 5.5Q7.425 6.3 6.213 8.05Q5 9.8 5 12Q5 14.9 7.05 16.95Q9.1 19 12 19ZM11.75 12.25Q11.75 12.25 11.75 12.25Q11.75 12.25 11.75 12.25Q11.75 12.25 11.75 12.25Q11.75 12.25 11.75 12.25Q11.75 12.25 11.75 12.25Q11.75 12.25 11.75 12.25Q11.75 12.25 11.75 12.25Q11.75 12.25 11.75 12.25Q11.75 12.25 11.75 12.25Q11.75 12.25 11.75 12.25Q11.75 12.25 11.75 12.25Q11.75 12.25 11.75 12.25Z"/></svg>
+        </div>
+      </div>
+      
+      <div class="page-wrapper" asscroll>
+        <section class="hero">
+          <div class="hero-wrapper">
+
+            <!-- Intro Stuff -->
+            <div class="intro-text">Welcome to my portfolio!</div>
+            <div class="arrow-svg-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path fill="currentColor" d="M12 14.95q-.2 0-.375-.063-.175-.062-.325-.212L6.675 10.05q-.275-.275-.262-.688.012-.412.287-.687.275-.275.7-.275.425 0 .7.275l3.9 3.9 3.925-3.925q.275-.275.688-.263.412.013.687.288.275.275.275.7 0 .425-.275.7l-4.6 4.6q-.15.15-.325.212-.175.063-.375.063Z"/></svg>
+            </div>
+
+            <div class="hero-main">
+              <h1 class="hero-main-title">Mithila Packiyathasan</h1>
+              <p class="hero-main-description">Computer Science and Software Engineering student </p>
+            </div>
+
+            <div class="hero-second">
+              <p class="hero-second-subheading first-sub">Mithila Packiyathasan's</p>
+              <p class="hero-second-subheading second-sub">Portfolio</p>
+            </div>
+
+          </div>
+        </section>
+
+        <div class="first-move section-margin"></div>
+
+        <section class="first-section section left">
+          <div class="progress-wrapper progress-bar-wrapper-left">
+            <div class="progress-bar"></div>
+          </div>
+
+          <div class="section-intro-wrapper">
+            <h1 class="section-title">
+              <span class="section-title-text">About Me</span>
+              <div class="section-title-decoration styleOne"></div>
+              <div class="section-title-decoration styleTwo"></div>
+              <div class="section-title-decoration styleThree"></div>
+            </h1>
+            <span class="section-number">01</span>
+          </div>
+          
+
+          <div class="section-detail-wrapper">
+            <!-- <h3 class="section-heading">Hello!</h3> -->
+            <p class="section-text">I'm Packiyathasan Mithila, a passionate and self-driven Computer Science and Software Engineering undergraduate at SLIIT Northern Uni, with hands-on experience in both web and mobile development. Currently interning at CodeVita, I'm strengthening my skills in Laravel, Flutter, and modern web technologies such as PHP, JavaScript,Tailwindcss,MySQL, and Bootstrap. I enjoy building projects that solve real-world problems ranging from a Student Management System and School Staff Management System to an engaging Country Flag Game App. My interests lie in creating user-friendly, efficient, and scalable software solutions, while continuously learning new technologies and collaborating in team environments to turn ideas into impactful digital experiences.</p>
+            
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h1 id="education">EDUCATION</h1>
+            <br>
+            <br>
+            <br>
+            <p><img src="/assets/sliit-city-uni.png" alt="SLIIT City University logo" class="education-logo"></p>
+            <br>
+            <br>
+            <h3 id="sliit-city-university"><a href="https://sliitcityuni.lk/">SLIIT City University</a></h3>
+            <br>
+            <br>
+            <h4 id="bsc-hons-in-computer-science-and-software-engineering">BSc (Hons) in Computer Science &amp; Software Engineering</h4>
+            <br>
+            
+            <p>[ 2024 - Present ]</p>
+          </div>
+        </section>
+
+        <div class="second-move section-margin"></div>
+
+        <section class="second-section section right">
+          <div class="progress-wrapper progress-bar-wrapper-right">
+            <div class="progress-bar blue-background"></div>
+          </div>
+
+          <div class="section-intro-wrapper blue-text blue-border">
+            <h1 class="section-title blue-text blue-border">
+              <span class="section-title-text blue-text">My Projects</span>
+              <div class="section-title-decoration styleOne blue-border"></div>
+              <div class="section-title-decoration styleTwo blue-border"></div>
+              <div class="section-title-decoration styleThree blue-background blue-border"></div>
+            </h1>
+            <span class="section-number blue-text">02</span>
+          </div>
+
+          <div class="section-detail-wrapper">
+            <h3 class="section-heading">EduSync – School Management System</h3>
+            <p class="section-text">EduSync is a full-featured school management platform built with the MERN stack and PostgreSQL, designed to help administrators and teachers efficiently manage academic operations. The system includes modules for classes, labs, faculty members, and departments, each with complete CRUD functionality for easy data management.
+                                    The platform features automated class scheduling, allowing admins to generate and organize timetables quickly. Teachers can view their schedules, receive notifications and email alerts for newly scheduled or updated classes, and request leaves or class rescheduling when necessary.</p>
+            <p class="section-text">Admins have centralized control to approve leave requests, reschedule classes, and maintain a smooth academic workflow. The teacher dashboard promotes engagement and tracks performance through participation and activity insights, ensuring transparency and collaboration across the system.</p>
+            <div class="project-gallery" data-gallery="edusync">
+              <img src="/projects/edusync/team.jpeg" alt="EduSync team collaboration" >
+              <img src="/projects/edusync/class-management.jpeg" alt="EduSync class management module" class="is-hidden">
+              <img src="/projects/edusync/timetable.jpeg" alt="EduSync timetable generator">
+              <img src="/projects/edusync/automation.jpeg" alt="EduSync workflow automation view">
+              <img src="/projects/edusync/faculty.jpeg" alt="EduSync faculty directory">
+              <img src="/projects/edusync/authentication.jpeg" alt="EduSync secure authentication flow" class="is-hidden">
+              <img src="/projects/edusync/subjects.jpeg" alt="EduSync subject planner" class="is-hidden">
+              <img src="/projects/edusync/leave-management.jpeg" alt="EduSync leave management approvals" class="is-hidden">
+              <img src="/projects/edusync/schedule-change.jpeg" alt="EduSync schedule change requests" class="is-hidden">
+              
+            </div>
+            <button
+              class="gallery-toggle"
+              data-target="edusync"
+              data-expand-label="View all EduSync images"
+              data-collapse-label="Show fewer images"
+              aria-expanded="false"
+            >
+              View all EduSync images
+            </button>
+            <p class="section-text">EduSync is currently in its final testing phase and is set to be deployed at an elementary and high school in Nelliady within the next six months, according to client requirements.</p>
+
+            <h3 class="section-heading">Arish Fresh Corner – Community Business Assignment </h3>
+            <p class="section-text">Arish’s Fresh Corner was a physical pop-up dessert and drinks bar launched as part of a campus business assignment, designed to test real-world entrepreneurial and management skills. I led the branding, menu design, and overall operations, while coordinating a six-person team responsible for sourcing ingredients, preparation, and customer service during the university food fair.</p>
+            <p class="section-text">Our stall featured a range of blended drinks, mocktails, and desserts, crafted to stand out through creative presentation and taste consistency. Throughout the event, we collected and analyzed customer feedback to refine our offerings in real time, improving both product quality and sales appeal.</p>
+            <div class="project-gallery" data-gallery="arish">
+              <img src="/projects/arish-fresh-corner/poster.jpeg" alt="Arish Fresh Corner promotional poster">
+              <img src="/projects/arish-fresh-corner/service-line.jpeg" alt="Arish Fresh Corner service overview">
+              <img src="/projects/arish-fresh-corner/crowd-service.jpeg" alt="Arish Fresh Corner community outreach">
+              <img src="/projects/arish-fresh-corner/team-portrait-1.jpeg" alt="Arish Fresh Corner team portrait">
+            </div>
+            <p class="section-text">By applying structured cost tracking and margin analysis, our team successfully achieved a substantial profit compared to our initial expenditure — demonstrating strong teamwork, strategic pricing, and efficient resource management under a short operational timeframe.</p>
+          </div>
+        </section>
+        
+        <div class="third-move section-margin"></div>
+
+        <section class="third-section section left">
+          <div class="progress-wrapper progress-bar-wrapper-left">
+            <div class="progress-bar green-background"></div>
+          </div>
+
+          <div class="section-intro-wrapper green-text green-border">
+            <h1 class="section-title green-text green-border">
+              <span class="section-title-text green-text">Professional Skills Time-Line</span>
+              <br>
+              <div class="section-title-decoration styleOne green-border"></div>
+              <div class="section-title-decoration styleTwo green-border"></div>
+              <div class="section-title-decoration styleThree green-background green-border"></div>
+            </h1>
+            <span class="section-number green-text">03</span>
+          </div>
+
+          <div class="section-detail-wrapper timeline-wrapper">
+            <div class="timeline">
+              <article class="timeline-item">
+                <button class="timeline-header" type="button" data-timeline-toggle aria-expanded="false">
+                  <div class="timeline-week">Week 01</div>
+                  <div class="timeline-meta">
+                    <h3>Professional Skills</h3>
+                    <p>I mix TypeScript, React, and thoughtful UX planning to ship stable, accessible features.</p>
+                  </div>
+                </button>
+                <div class="timeline-body" hidden>
+                  <div class="timeline-media">
+                    <img src="/assets/img/week1.jpeg" alt="Week 01 professional skills">
+                  </div>
+                  <div class="timeline-content">
+                    <p>I partner product thinking with solid engineering so we can design, build, and refine without losing quality.</p>
+                    <ul>
+                      <li><strong>Technical:</strong> TypeScript, React, Next.js, Tailwind CSS, Node.js, REST/GraphQL integrations, automated testing pipelines.</li>
+                      <li><strong>Experience led:</strong> UX research, design systems, accessibility reviews, and rapid prototyping.</li>
+                      <li><strong>Soft skills:</strong> Mentoring, storytelling for stakeholders, and staying calm under tight deadlines.</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+              <article class="timeline-item">
+                <button class="timeline-header" type="button" data-timeline-toggle aria-expanded="false">
+                  <div class="timeline-week">Week 02</div>
+                  <div class="timeline-meta">
+                    <h3>Employability Skills</h3>
+                    <p>Proactive collaborator who keeps teams aligned through curiosity and consistent follow-through.</p>
+                  </div>
+                </button>
+                <div class="timeline-body" hidden>
+                  <div class="timeline-media">
+                    <img src="/assets/img/week2-2.jpeg" alt="Week 02 employability skills">
+                  </div>
+                  <div class="timeline-content">
+                    <p>I build trust quickly by communicating often, asking smart questions, and rallying everyone around the same outcomes.</p>
+                    <ul>
+                      <li>Facilitate sprint rituals so contributors know priorities and blockers.</li>
+                      <li>Translate complex engineering work into decisions non-technical partners can act on.</li>
+                      <li>Adapt to new stacks or domains without slowing down delivery.</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+              <article class="timeline-item">
+                <button class="timeline-header" type="button" data-timeline-toggle aria-expanded="false">
+                  <div class="timeline-week">Week 03</div>
+                  <div class="timeline-meta">
+                    <h3>Values &amp; Character</h3>
+                    <p>Lead with empathy and integrity—great code comes from teams that feel safe to experiment.</p>
+                  </div>
+                </button>
+                <div class="timeline-body" hidden>
+                  <div class="timeline-media">
+                    <img src="/assets/img/VB.jpeg" alt="Week 03 values">
+                  </div>
+                  <div class="timeline-content">
+                    <p>I aim for psychological safety, clear communication, and a sense of shared purpose.</p>
+                    <p>My compass: choose the ethical path, give credit freely, own mistakes quickly, and stay curious about how we can create more impact together.</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="timeline-item">
+                <button class="timeline-header" type="button" data-timeline-toggle aria-expanded="false">
+                  <div class="timeline-week">Week 04</div>
+                  <div class="timeline-meta">
+                    <h3>CV Writing</h3>
+                    <p>Condensed an achievements-first CV that surfaces outcomes instead of job descriptions.</p>
+                  </div>
+                </button>
+                <div class="timeline-body" hidden>
+                  <div class="timeline-media">
+                    <img src="/assets/img/week4.jpeg" alt="Week 04 CV writing">
+                  </div>
+                  <div class="timeline-content">
+                    <p>Recruiters get a snapshot of measurable wins, leadership moments, and tech stack at a glance.</p>
+                    <ul>
+                      <li>Bullets open with strong verbs and quantify impact (e.g., “Reduced build time 35% by adding turborepo caching”).</li>
+                      <li>Clear structure: Summary, Core Skills, Experience, Education, Certifications.</li>
+                      <li>Single-page PDF with consistent typography, accessible contrast, and ATS-friendly formatting.</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+              <article class="timeline-item">
+                <button class="timeline-header" type="button" data-timeline-toggle aria-expanded="false">
+                  <div class="timeline-week">Week 05</div>
+                  <div class="timeline-meta">
+                    <h3>Interview Manners</h3>
+                    <p>Prepared, respectful interviews open doors—small cues showcase collaboration style.</p>
+                  </div>
+                </button>
+                <div class="timeline-body" hidden>
+                  <div class="timeline-media">
+                    <img src="/assets/img/week5-1.jpeg" alt="Week 05 interview manners">
+                  </div>
+                  <div class="timeline-content">
+                    <div class="timeline-grid">
+                      <div class="timeline-card success">
+                        <h4>Good</h4>
+                        <ul>
+                          <li>Research the mission, product, and latest releases to tailor responses.</li>
+                          <li>Use STAR and quantify outcomes (e.g., “Cut load time 28% in two sprints”).</li>
+                          <li>Listen, clarify, and structure answers before diving in.</li>
+                          <li>Send thoughtful thank-you notes outlining fit and next steps.</li>
+                        </ul>
+                      </div>
+                      <div class="timeline-card caution">
+                        <h4>Bad</h4>
+                        <ul>
+                          <li>Arriving late or giving generic answers with no preparation.</li>
+                          <li>Blaming teammates or sharing impact with no data.</li>
+                          <li>Monologues without listening or asking clarifying questions.</li>
+                          <li>Skipping follow-ups or curiosity about the roadmap and team.</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="timeline-item">
+                <button class="timeline-header" type="button" data-timeline-toggle aria-expanded="false">
+                  <div class="timeline-week">Week 06</div>
+                  <div class="timeline-meta">
+                    <h3>Portfolio Projects</h3>
+                    <p>Own discovery through delivery—measure outcomes and iterate fast.</p>
+                  </div>
+                </button>
+                <div class="timeline-body" hidden>
+                  <div class="timeline-media">
+                    <img src="/assets/img/week6-1.jpeg" alt="Week 06 portfolio projects">
+                  </div>
+                  <div class="timeline-content">
+                    <p><strong>EduSync</strong>—a smart school timetable manager built with React, Tailwind, and an API layer that spots conflicts quickly.</p>
+                    <ul>
+                      <li>Automated clash detection, visual timetables, and real-time alerts.</li>
+                      <li>Worked with admins to streamline bulk edits and approvals.</li>
+                      <li>Achieved a <strong>42% drop</strong> in scheduling conflicts during the pilot.</li>
+                    </ul>
+                    <p>Also built SaaS billing dashboards, multilingual chatbots, and WebGL showroom prototypes.</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="timeline-item">
+                <button class="timeline-header" type="button" data-timeline-toggle aria-expanded="false">
+                  <div class="timeline-week">Week 07</div>
+                  <div class="timeline-meta">
+                    <h3>Meeting &amp; Speaking Skills</h3>
+                    <p>Plan with intent, facilitate with clarity, and close with clear ownership.</p>
+                  </div>
+                </button>
+                <div class="timeline-body" hidden>
+                  <div class="timeline-media">
+                    <img src="/assets/img/week7-1.jpeg" alt="Week 07 meeting skills">
+                  </div>
+                  <div class="timeline-content">
+                    <ul>
+                      <li>Open sessions with outcomes, timeboxes, and a fast alignment pulse.</li>
+                      <li>Summarize decisions, assign owners, due dates, and acceptance criteria.</li>
+                      <li>Share concise notes in Slack/Notion with links to PRs, tickets, and next steps.</li>
+                      <li>Use visuals and analogies so decisions are fast and durable.</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+              <article class="timeline-item">
+                <button class="timeline-header" type="button" data-timeline-toggle aria-expanded="false">
+                  <div class="timeline-week">Week 08</div>
+                  <div class="timeline-meta">
+                    <h3>Email Etiquette</h3>
+                    <p>Write for action—front-load the ask, keep it scannable, and set expectations.</p>
+                  </div>
+                </button>
+                <div class="timeline-body" hidden>
+                  <div class="timeline-media">
+                    <img src="/assets/img/week8-1.jpeg" alt="Week 08 email writing">
+                  </div>
+                  <div class="timeline-content">
+                    <p>Template for exec/stakeholder updates:</p>
+                    <div class="timeline-code">
+                      <p>Subject: Sprint 18 – Dashboard rollout status</p>
+                      <p>Hi [Name],</p>
+                      <p>• Done: API quota safeguards; QA sign-off<br>
+                        • In progress: Accessibility pass (ETA Fri)<br>
+                        • Risk: SSO vendor slippage — tracking with IT; no action needed</p>
+                      <p>Thanks,<br>Mithila</p>
+                    </div>
+                    <ul>
+                      <li>Lead with the summary/ask; limit paragraphs to three sentences.</li>
+                      <li>Use specific subjects and bold deadlines/owners when relevant.</li>
+                      <li>Proof for tone, forwarding, and clarity before hitting send.</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+              <article class="timeline-item">
+                <button class="timeline-header" type="button" data-timeline-toggle aria-expanded="false">
+                  <div class="timeline-week">Week 09</div>
+                  <div class="timeline-meta">
+                    <h3>Proposal Writing</h3>
+                    <p>Eliminate ambiguity—show the problem, plan, price, and payoff clearly.</p>
+                  </div>
+                </button>
+                <div class="timeline-body" hidden>
+                  <div class="timeline-media">
+                    <img src="/assets/img/PW.jpeg" alt="Week 09 proposal writing">
+                  </div>
+                  <div class="timeline-content">
+                    <p>I structure proposals so saying “yes” feels natural:</p>
+                    <ol>
+                      <li><strong>Problem:</strong> Who’s impacted, how often, and the cost of delay.</li>
+                      <li><strong>Solution:</strong> Phased plan, scope boundaries, dependencies, success metrics.</li>
+                      <li><strong>Investment:</strong> Budget, team capacity, tooling, and assumptions.</li>
+                      <li><strong>Impact:</strong> ROI model, risks and mitigations, plus the decision request.</li>
+                    </ol>
+                  </div>
+                </div>
+              </article>
+
+              <article class="timeline-item">
+                <button class="timeline-header" type="button" data-timeline-toggle aria-expanded="false">
+                  <div class="timeline-week">Week 10</div>
+                  <div class="timeline-meta">
+                    <h3>Teamwork &amp; Leadership</h3>
+                    <p>Serve the team—raise the bar, unblock quickly, and amplify wins.</p>
+                  </div>
+                </button>
+                <div class="timeline-body" hidden>
+                  <div class="timeline-media">
+                    <img src="/assets/img/week10-1.jpeg" alt="Week 10 teamwork">
+                  </div>
+                  <div class="timeline-content">
+                    <p>I flex between leading and supporting so throughput and learning stay high.</p>
+                    <ul>
+                      <li>Ran engineering guilds covering documentation standards, testing, and DX tooling.</li>
+                      <li>Coached juniors via pairing, review checklists, and growth plans.</li>
+                      <li>Celebrated milestones and hosted blameless retros with action items.</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+              <article class="timeline-item">
+                <button class="timeline-header" type="button" data-timeline-toggle aria-expanded="false">
+                  <div class="timeline-week">Week 11</div>
+                  <div class="timeline-meta">
+                    <h3>Emotional Intelligence</h3>
+                    <p>Stay curious under pressure—listen, reflect, and choose the most useful response.</p>
+                  </div>
+                </button>
+                <div class="timeline-body" hidden>
+                  <div class="timeline-media">
+                    <img src="/assets/img/EI.jpeg" alt="Week 11 emotional intelligence">
+                  </div>
+                  <div class="timeline-content">
+                    <ul>
+                      <li>De-escalate by mirroring concerns and confirming shared goals.</li>
+                      <li>Give private, behavior-based feedback tied to outcomes.</li>
+                      <li>Protect focus time while staying responsive to critical issues.</li>
+                    </ul>
+                    <p>This keeps momentum high even when timelines compress.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <div class="games-move section-margin"></div>
+
+        <section class="certificate-section section right">
+          <div class="progress-wrapper progress-bar-wrapper-right">
+            <div class="progress-bar green-background"></div>
+          </div>
+
+          <div class="section-intro-wrapper green-text green-border">
+            <h1 class="section-title green-text green-border">
+              <span class="section-title-text green-text">Certificates</span>
+              <div class="section-title-decoration styleOne green-border"></div>
+              <div class="section-title-decoration styleTwo green-border"></div>
+              <div class="section-title-decoration styleThree green-background green-border"></div>
+            </h1>
+            <span class="section-number green-text">04</span>
+          </div>
+
+          <div class="section-detail-wrapper">
+            <p class="section-text">I’m constantly levelling up through AWS Academy pathways each certificate keeps me closer to cloud-ready delivery. Tap a badge to view it full size and confirm the skills I’ve validated so far.</p>
+            <div class="project-gallery certificate-gallery" data-gallery="certificates">
+              <img src="/assets/certificates/AS.png" alt="AWS Academy Graduate - Cloud Foundations certificate">
+              <img src="/assets/certificates/CS.png" alt="AWS Academy Graduate - Cloud Security Foundations certificate">
+              <img src="/assets/certificates/HAWA.png" alt="AWS Academy Graduate - AI practitioner certificate">
+            </div>
+          </div>
+        </section>
+
+        <div class="section-margin"></div>
+
+        <section class="games-section section left">
+          <div class="progress-wrapper progress-bar-wrapper-left">
+            <div class="progress-bar blue-background"></div>
+          </div>
+
+          <div class="section-intro-wrapper blue-text blue-border">
+            <h1 class="section-title blue-text blue-border">
+              <span class="section-title-text blue-text">Games</span>
+              <div class="section-title-decoration styleOne blue-border"></div>
+              <div class="section-title-decoration styleTwo blue-border"></div>
+              <div class="section-title-decoration styleThree blue-background blue-border"></div>
+            </h1>
+            <span class="section-number blue-text">05</span>
+          </div>
+
+          <div class="section-detail-wrapper">
+            <p class="section-text">
+              Find My Path is a mini AI lab I built in React to visualise how A* and Dijkstra explore mazes. Set the start, end and walls, then hit run to see every frontier, visit, and final path unfold in real time. When you want a quick head-to-head, jump into the Tic Tac Toe showdown and try to outsmart the adaptive bot.
+            </p>
+            <div id="find-my-path-root" class="find-my-path-root" aria-live="polite"></div>
+          </div>
+        </section>
+
+
+        <div class="contact-move section-margin"></div>
+
+        <section class="second-section section right">
+          <div class="progress-wrapper progress-bar-wrapper-right">
+            <div class="progress-bar blue-background"></div>
+          </div>
+
+          <div class="section-intro-wrapper blue-text blue-border">
+            <h1 class="section-title blue-text blue-border">
+              <span class="section-title-text blue-text">CONTACT</span>
+              <div class="section-title-decoration styleOne blue-border"></div>
+              <div class="section-title-decoration styleTwo blue-border"></div>
+              <div class="section-title-decoration styleThree blue-background blue-border"></div>
+            </h1>
+            <span class="section-number blue-text">06</span>
+          </div>
+
+          <div class="section-detail-wrapper">
+            <p class="section-text contact-text">Say hi on LinkedIn if you want to collaborate or chat about what I’m building, and browse my GitHub to dive into the projects I’m experimenting with right now.</p>
+            <div class="contact-links">
+              <a class="contact-link" href="https://www.linkedin.com/in/mithila-packiyathasan-54a88435b/" target="_blank" rel="noreferrer">
+                <img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&amp;logoColor=white" alt="Connect on LinkedIn">
+              </a>
+              <a class="contact-link" href="https://github.com/PMithila" target="_blank" rel="noreferrer">
+                <img src="https://img.shields.io/badge/Github-12100E?logo=github&amp;logoColor=white" alt="Explore my GitHub">
+              </a>
+              <a
+                class="contact-link contact-link--resume"
+                href="/assets/mithila-packiyathasan-cv.pdf"
+                download
+              >
+                Download Résumé
+              </a>
+            </div>
+          </div>
+        </section>
+        <footer class="footer">
+          <span class="footer__copyright">Copyright &copy; 2025 - Mithila Packiyathasan</span>
+        </footer><br><br>
+
+
+
+  
+
+      </div>
+    </div>
+    <script type="module" src="/src/main.jsx"></script>
+    <div class="gallery-modal" aria-hidden="true">
+      <button class="gallery-close" aria-label="Close gallery">&times;</button>
+      <button class="gallery-nav gallery-prev" aria-label="Previous image">&#10094;</button>
+      <div class="gallery-image-wrapper">
+        <img class="gallery-modal-image" src="" alt="Project preview">
+        <div class="gallery-counter"></div>
+      </div>
+      <button class="gallery-nav gallery-next" aria-label="Next image">&#10095;</button>
+    </div>
+  </body>
+</html>
