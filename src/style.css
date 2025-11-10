@@ -658,14 +658,14 @@ body.modal-open{
   box-shadow: 0 18px 35px rgba(0, 0, 0, 0.2);
 }
 
-/* Find My Path Game --------------------------------------------- */
+/* Memory Match Game --------------------------------------------- */
 .games-hub{
   display: flex;
   flex-direction: column;
   gap: 32px;
 }
 
-.find-my-path,
+.memory-match,
 .tic-tac-toe{
   padding: 32px;
   border-radius: 32px;
@@ -674,197 +674,121 @@ body.modal-open{
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.find-my-path{
+.memory-match{
   margin-top: 32px;
 }
 
-.find-my-path__intro h3{
+.memory-header h3{
   font-size: 24px;
   margin-bottom: 8px;
   color: var(--color-text);
 }
 
-.find-my-path__intro p{
+.memory-header p{
   margin-bottom: 24px;
   line-height: 1.8;
   color: rgba(0, 0, 0, 0.7);
 }
 
-.find-my-path__controls{
+.memory-stats{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 16px;
-  margin-bottom: 24px;
+  align-items: center;
+  margin-bottom: 16px;
 }
 
-.find-my-path__controls label{
+.memory-timer{
   display: flex;
-  flex-direction: column;
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: rgba(0, 0, 0, 0.6);
-  gap: 6px;
+  align-items: center;
+  gap: 8px;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-text);
 }
 
-.find-my-path__controls select,
-.find-my-path__controls input[type="range"]{
-  border-radius: 999px;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  padding: 8px 12px;
-  font-size: 14px;
-  background: #fff;
+.memory-timer span:last-child{
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.08em;
 }
 
-.find-my-path__buttons{
-  grid-column: 1 / -1;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+.memory-progress{
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.7);
 }
 
-.find-my-path__buttons button{
-  flex: 1 1 160px;
+.memory-reset{
+  border: none;
   border-radius: 999px;
   padding: 10px 16px;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
   background: var(--color-blue);
   color: #fff;
+  font-weight: 600;
+  cursor: pointer;
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.find-my-path__buttons button:nth-child(2){
-  background: var(--color-green);
+.memory-reset:hover{
+  transform: translateY(-2px);
 }
 
-.find-my-path__buttons button:nth-child(3){
-  background: var(--color-pink);
+.memory-message{
+  margin-bottom: 16px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.7);
 }
 
-.find-my-path__buttons button:disabled{
-  opacity: 0.6;
+.memory-grid{
+  display: grid;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 24px;
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.memory-card{
+  aspect-ratio: 1 / 1;
+  border: none;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #f8f9fb, #e9eef7);
+  font-size: 32px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+}
+
+.memory-card:disabled{
   cursor: not-allowed;
+}
+
+.memory-card.revealed{
+  background: #fff;
+  transform: scale(1.02);
+}
+
+.memory-card.matched{
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(0.8);
   box-shadow: none;
 }
 
-.find-my-path__grid{
-  display: grid;
-  gap: 2px;
-  background: rgba(0, 0, 0, 0.05);
-  padding: 8px;
-  border-radius: 20px;
-}
-
-.path-cell{
-  aspect-ratio: 1 / 1;
-  border: none;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.8);
-  cursor: pointer;
-  transition: transform 0.1s ease;
-}
-
-.path-cell:disabled{
-  cursor: not-allowed;
-}
-
-.path-cell:hover:not(:disabled){
-  transform: scale(1.03);
-}
-
-.cell-empty{
-  background: rgba(255, 255, 255, 0.9);
-}
-
-.cell-start{
-  background: #27ae60;
-}
-
-.cell-end{
-  background: #c0392b;
-}
-
-.cell-wall{
-  background: #111;
-}
-
-.cell-visited{
-  background: #5dade2;
-}
-
-.cell-frontier{
-  background: #9b59b6;
-}
-
-.cell-path{
-  background: #f4d03f;
-}
-
-.find-my-path__legend{
-  margin: 18px 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  font-size: 13px;
-}
-
-.legend-item{
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: rgba(0, 0, 0, 0.6);
-}
-
-.legend-swatch{
-  width: 14px;
-  height: 14px;
-  border-radius: 4px;
+.memory-card__symbol{
   display: inline-block;
 }
 
-.legend-swatch.cell-start{ background: #27ae60; }
-.legend-swatch.cell-end{ background: #c0392b; }
-.legend-swatch.cell-wall{ background: #111; }
-.legend-swatch.cell-visited{ background: #5dade2; }
-.legend-swatch.cell-frontier{ background: #9b59b6; }
-.legend-swatch.cell-path{ background: #f4d03f; }
-
-.find-my-path__stats{
-  border-radius: 24px;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.03);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  margin-top: 12px;
-}
-
-.find-my-path__stats h4{
-  margin-bottom: 12px;
-  font-size: 18px;
-}
-
-.stat-row{
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 6px;
-  font-size: 14px;
-}
-
-.stat-row.warning{
-  color: #c0392b;
-  font-weight: 600;
-}
-
-.find-my-path__message{
-  margin-top: 12px;
-  color: #c0392b;
-  font-weight: 600;
+.memory-result{
+  margin-top: 18px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-blue);
 }
 
 @media (max-width: 600px){
-  .find-my-path{
+  .memory-match{
     padding: 20px;
   }
 }

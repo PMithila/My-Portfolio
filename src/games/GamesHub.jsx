@@ -1,10 +1,10 @@
 import React from "react";
-import FindMyPath from "./FindMyPath.jsx";
+import MemoryMatchGame from "./FindMyPath.jsx";
 import TicTacToe from "./TicTacToe.jsx";
 
 const GamesHub = () => (
   <div className="games-hub">
-    <FindMyPath />
+    <MemoryMatchGame />
     <TicTacToe />
   </div>
 );
