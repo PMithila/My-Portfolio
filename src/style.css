@@ -246,9 +246,9 @@ svg{
 }
 
 .first-section{
-  background-image: url('/assets/profile.jpeg');
+  background-image: url('/assets/profile1.jpeg');
   background-size: cover;
-  background-position: center;
+  background-position:55% center;
   background-repeat: no-repeat;
 }
 
@@ -257,13 +257,13 @@ svg{
   position: absolute;
   inset: 0;
   background-color: rgba(250, 244, 229, 0.85);
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(1px);
   z-index: 0;
 }
 
 .first-section > *{
   position: relative;
-  z-index: 1;
+  z-index: 4;
 }
 
 .left{
