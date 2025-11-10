@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 
 const GRID_SIZE = 4;
 const TOTAL_PAIRS = (GRID_SIZE * GRID_SIZE) / 2;
-const GAME_DURATION = 180; // seconds
+const GAME_DURATION = 60; // seconds
 const CARD_SYMBOLS = [
   "🌕",
   "🌟",
@@ -13,7 +13,7 @@ const CARD_SYMBOLS = [
   "👾",
   "🌌",
 ];
-const INITIAL_MESSAGE = "Find every matching pair before the 3-minute timer hits zero.";
+const INITIAL_MESSAGE = "Find every matching pair before the 1-minute timer hits zero.";
 
 const formatTime = (seconds) => {
   const mins = Math.floor(seconds / 60)
